@@ -1,0 +1,17 @@
+const updatedDocs = db.transactions.find({type: "withdraw"}).sort({createdAt: -1}).limit(150);
+var mycollIDs = updatedDocs.map(x => x._id);
+
+mycollIDs.forEach(docID => {
+    db.transactions.updateOne(
+        { _id: docID },
+        {
+            $set: {
+                status: 0,
+                createdAt: new Date(),
+                updatedAt: new Date(),
+                pool: ObjectId("66105dc789195e1f0b715edf"),
+                callback: "https://webhook.site/159a8da7-1963-4838-b357-1d13fe42b41d"
+            }
+        }
+    );
+});

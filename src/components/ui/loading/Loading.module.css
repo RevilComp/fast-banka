@@ -1,0 +1,18 @@
+.loading {
+  animation: loading 1s ease-out infinite;
+  background-color: rgb(220, 220, 220) !important;
+}
+
+@keyframes loading {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

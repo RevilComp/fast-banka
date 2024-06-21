@@ -1,0 +1,61 @@
+{
+  "name": "grad-server",
+  "version": "1.0.0",
+  "description": "Poll Web Server(Node.js mongoDB)",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "forever start -c 'node -r newrelic' index.js",
+    "pretty": "npx prettier --write '**/*.{js,json}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ledmago/gradProjectServer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ledmago/gradProjectServer/issues"
+  },
+  "homepage": "https://github.com/ledmago/gradProjectServer#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "base-64": "^1.0.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "bull": "^4.12.6",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "exceljs": "^4.3.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "express-pino-logger": "^7.0.0",
+    "i": "^0.3.7",
+    "iyzipay": "^2.0.48",
+    "js-crypto-hmac": "^1.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.3.0",
+    "moment": "^2.29.4",
+    "mongoose": "^8.3.2",
+    "multer": "^1.4.2",
+    "newrelic": "^11.4.0",
+    "node-cron": "^3.0.2",
+    "node-mailjet": "^3.3.1",
+    "node-schedule": "^2.1.1",
+    "nodemailer": "^6.4.16",
+    "npm": "^10.5.2",
+    "pdfkit": "^0.15.0",
+    "pino": "^8.16.1",
+    "qrcode": "^1.5.3",
+    "rabbitmq-client": "^4.5.3",
+    "react-select": "^5.2.2",
+    "socket.io": "^4.5.4",
+    "speakeasy": "^2.0.0",
+    "validator": "^13.1.17",
+    "web-push": "^3.5.0"
+  }
+}
