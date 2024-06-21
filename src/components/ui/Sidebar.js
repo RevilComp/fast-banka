@@ -6,8 +6,8 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import Links from "./panel/links/Links";
 
 const Sidebar = ({ show, handleSidebar, links }) => (
-  <Offcanvas show={show} className={"!bg-secondary !z-50"}>
-    <Offcanvas.Header className={"bg-secondary"}>
+  <Offcanvas show={show} className={"!bg-light !z-50"}>
+    <Offcanvas.Header className={"bg-light"}>
       <Link to={"/"} onClick={handleSidebar}>
         <img src={logo} alt="Logo" className="w-24" />
       </Link>

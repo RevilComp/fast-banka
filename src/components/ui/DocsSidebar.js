@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const DocsSidebar = ({ show, handleSidebar }) => (
-  <Offcanvas show={show} className={"!bg-secondary !z-50"}>
-    <Offcanvas.Header className={"bg-secondary"}>
+  <Offcanvas show={show} className={"!bg-light !z-50"}>
+    <Offcanvas.Header className={"bg-light"}>
       <Link to={"/"} onClick={handleSidebar}>
         <img src={logo} alt="Logo" className="w-24" />
       </Link>
