@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../logo.light.svg";
+import logo from "../logo.png";
 import Container from "../components/ui/Container";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,7 +23,7 @@ const DocsPageBanka = () => {
               to={"/"}
               className="block border-b border-gray-700 py-6 mb-12"
             >
-              <img src={logo} alt="Logo" className="w-26" />
+              <img src={logo} alt="Logo" className="w-24" />
             </Link>
             <ul>
               <li className="mb-4">
@@ -115,7 +115,7 @@ const DocsPageBanka = () => {
                     <tr>
                       <td className="border px-4 py-2">firm_key</td>
                       <td className="border px-4 py-2">
-                        660188c420b04635af276227
+                        6675a5153858d3634cc262e9
                       </td>
                     </tr>
                     <tr>
@@ -126,12 +126,12 @@ const DocsPageBanka = () => {
                     </tr>
                     <tr>
                       <td className="border px-4 py-2">secretKey</td>
-                      <td className="border px-4 py-2">rxLr4aw82H4z</td>
+                      <td className="border px-4 py-2">1OaKUoxIGXKIgN9</td>
                     </tr>
                     <tr>
                       <td className="border px-4 py-2">secretId</td>
                       <td className="border px-4 py-2">
-                        63cdb6b21af24b420a758eb3
+                        6675a4f935dd8d139ec2156a
                       </td>
                     </tr>
                     <tr>
@@ -142,7 +142,9 @@ const DocsPageBanka = () => {
                     </tr>
                     <tr>
                       <td className="border px-4 py-2">privateKey</td>
-                      <td className="border px-4 py-2">nxy14735qR8PYn</td>
+                      <td className="border px-4 py-2">
+                        b51c5cd8-3727-4a4a-8d49-070fb2cb7a67
+                      </td>
                     </tr>
                   </tbody>
                 </table>

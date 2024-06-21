@@ -1,5 +1,5 @@
 import Offcanvas from "./Offcanvas";
-import logo from "../../logo.light.svg";
+import logo from "../../logo.png";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";

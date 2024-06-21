@@ -12,7 +12,7 @@ import Dialog from "../components/ui/Dialog";
 import Spinner from "../components/ui/Spinner";
 import HttpRequest from "../utils/HttpRequest";
 import useInput from "../hooks/useInput";
-import logo from "../logo.dark.svg";
+import logo from "../logo.png";
 import Cookies from "js-cookie";
 import * as RemoteController from "../remoteControl";
 

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCircle } from "@fortawesome/free-solid-svg-icons";
-import logo from "../../logo.dark.svg";
+import logo from "../../logo.png";
 import userIcon from "../../user.png";
 import Button from "./Button";
 import Dropdown from "./Dropdown";
@@ -23,8 +23,8 @@ const Header = ({ handleSidebar, className }) => {
   };
 
   const handleDropdown = () => setDropdown(!dropdown);
-  const user = JSON.parse(localStorage.getItem("profile"))
-  const remoteUser = JSON.parse(localStorage.getItem("remoteProfile"))
+  const user = JSON.parse(localStorage.getItem("profile"));
+  const remoteUser = JSON.parse(localStorage.getItem("remoteProfile"));
   return (
     <header
       className={`bg-white sticky top-0 shadow-sm py-4 lg:py-8 z-10 ${className}`}
@@ -55,12 +55,17 @@ const Header = ({ handleSidebar, className }) => {
               />
               <span className="font-bold">
                 {RemoteController.isControlling() ? (
-                  remoteUser ? remoteUser.firstName : (user ? user.firstName : '')
+                  remoteUser ? (
+                    remoteUser.firstName
+                  ) : user ? (
+                    user.firstName
+                  ) : (
+                    ""
+                  )
                 ) : (
                   <></>
                 )}
               </span>
-
             </li>
             <hr className="my-4" />
             {RemoteController.isControlling() ? (

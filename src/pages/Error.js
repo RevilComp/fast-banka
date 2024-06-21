@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "../components/ui/Button";
-import logo from "../logo.dark.svg";
+import logo from "../logo.png";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
