@@ -1,0 +1,60 @@
+{
+  "websites": [
+    {
+      "name": "tesla",
+      "shortName": "TS"
+    },
+    {
+      "name": "heybet",
+      "shortName": "HB"
+    },
+    {
+      "name": "demosite",
+      "shortName": "DS"
+    },
+    {
+      "name": "mrbahis",
+      "shortName": "MRBHS"
+    },
+    {
+      "name": "klas",
+      "shortName": "KLS"
+    },
+    {
+      "name": "jasmin",
+      "shortName": "JSMN"
+    },
+    {
+      "name": "restbet",
+      "shortName": "RSTBET"
+    },
+    {
+      "name": "betpas",
+      "shortName": "BETPAS"
+    },
+    {
+      "name": "puli",
+      "shortName": "PULI"
+    },
+    {
+      "name": "pia",
+      "shortName": "PIA"
+    },
+    {
+      "name": "pokerklas547",
+      "shortName": "POKLAS"
+    },
+    {
+      "name": "monobahis",
+      "shortName": "MONOKLAS"
+    },
+    {
+      "name": "jestbahis",
+      "shortName": "JESTKLAS"
+    },
+    {
+      "name": "caddebet",
+      "shortName": "CADDEKLAS"
+    }
+  ]
+}

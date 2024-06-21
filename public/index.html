@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" href="#" type="image/x-icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="plugins/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css" />
+    <link rel="stylesheet" href="plugins/ionicons/dist/css/ionicons.min.css" />
+    <link
+      rel="stylesheet"
+      href="plugins/perfect-scrollbar/css/perfect-scrollbar.css"
+    />
+    <link
+      rel="stylesheet"
+      href="plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css"
+    />
+    <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap.css" />
+    <link
+      rel="stylesheet"
+      href="plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="plugins/weather-icons/css/weather-icons.min.css"
+    />
+    <link rel="stylesheet" href="plugins/c3/c3.min.css" />
+    <link
+      rel="stylesheet"
+      href="plugins/owl.carousel/dist/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="plugins/owl.carousel/dist/assets/owl.theme.default.min.css"
+    />
+    <link rel="stylesheet" href="dist/css/theme.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"
+    />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script> -->
+
+    <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
+    <style>
+      div.dataTables_wrapper {
+        /* width: 1000px; */
+        /* responsive olması için ayar çekilecek */
+        margin: 0 auto;
+      }
+
+      @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+        div.dataTables_wrapper {
+          width: 250px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Portrait */
+      @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+        div.dataTables_wrapper {
+          width: 250px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Landscape */
+      @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+        div.dataTables_wrapper {
+          width: 250px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+      /* Portrait and Landscape */
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        div.dataTables_wrapper {
+          width: 250px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Portrait */
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+        div.dataTables_wrapper {
+          width: 250px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Landscape */
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+        div.dataTables_wrapper {
+          width: 250px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+      /* Portrait and Landscape */
+      @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+        div.dataTables_wrapper {
+          width: 300px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Portrait */
+      @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+        div.dataTables_wrapper {
+          width: 300px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Landscape */
+      @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+        div.dataTables_wrapper {
+          width: 300px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* ----------- iPhone X ----------- */
+
+      /* Portrait and Landscape */
+      @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+        div.dataTables_wrapper {
+          width: 400px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Portrait */
+      @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+        div.dataTables_wrapper {
+          width: 400px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Landscape */
+      @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+        div.dataTables_wrapper {
+          width: 400px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+        div.dataTables_wrapper {
+          width: 500px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Portrait */
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+        div.dataTables_wrapper {
+          width: 500px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Landscape */
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+        div.dataTables_wrapper {
+          width: 500px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+
+      /* Portrait and Landscape */
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+        div.dataTables_wrapper {
+          width: 500px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Portrait */
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+        div.dataTables_wrapper {
+          width: 500px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Landscape */
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+        div.dataTables_wrapper {
+          width: 500px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* ----------- iPad Pro 10.5" ----------- */
+
+      /* Portrait and Landscape */
+      @media only screen and (min-device-width: 834px) and (max-device-width: 1112px) and (-webkit-min-device-pixel-ratio: 2) {
+        div.dataTables_wrapper {
+          width: 600px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Portrait */
+      /* Declare the same value for min- and max-width to avoid colliding with desktops */
+      /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+      @media only screen and (min-device-width: 834px) and (max-device-width: 834px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+        div.dataTables_wrapper {
+          width: 600px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Landscape */
+      /* Declare the same value for min- and max-width to avoid colliding with desktops */
+      /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+      @media only screen and (min-device-width: 1112px) and (max-device-width: 1112px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+        div.dataTables_wrapper {
+          width: 600px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* ----------- iPad Pro 12.9" ----------- */
+
+      /* Portrait and Landscape */
+      @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+        div.dataTables_wrapper {
+          width: 700px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Portrait */
+      /* Declare the same value for min- and max-width to avoid colliding with desktops */
+      /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+      @media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+        div.dataTables_wrapper {
+          width: 700px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+
+      /* Landscape */
+      /* Declare the same value for min- and max-width to avoid colliding with desktops */
+      /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+      @media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+        div.dataTables_wrapper {
+          width: 700px;
+          /* responsive olması için ayar çekilecek */
+          margin: 0 auto;
+          overflow-y: hidden;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <div id="modal-backdrop"></div>
+    <div id="offcanvas-backdrop" class="lg:hidden"></div>
+
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>'
+        );
+    </script>
+    <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
+    <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+    <script src="plugins/screenfull/dist/screenfull.js"></script>
+
+    <script src="plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="plugins/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="plugins/jvectormap/tests/assets/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="plugins/moment/moment.js"></script>
+    <script src="plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="plugins/d3/dist/d3.min.js"></script>
+    <script src="plugins/c3/c3.min.js"></script>
+    <script src="js/tables.js"></script>
+    <script src="js/widgets.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="dist/js/theme.min.js"></script>
+    <script src="scriptt.js"></script>
+    <script src="https://cdn.datatables.net/datetime/1.1.1/js/dataTables.dateTime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+    <script
+      src="pages/assets/js/jquery-2.2.4.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="pages/assets/js/bootstrap.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="pages/assets/js/jquery.bootstrap.wizard.js"
+      type="text/javascript"
+    ></script>
+
+    <!--  Plugin for the Wizard -->
+    <script
+      src="pages/assets/js/paper-bootstrap-wizard.js"
+      type="text/javascript"
+    ></script>
+
+    <!--  More information about jquery.validate here: https://jqueryvalidation.org/	 -->
+    <script
+      src="pages/assets/js/jquery.validate.min.js"
+      type="text/javascript"
+    ></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+
+    <!-- <script>
+
+    $(document).ready(function () {
+      $('#example').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+          'copyHtml5',
+          'excelHtml5',
+          'csvHtml5',
+          'pdfHtml5'
+        ],
+        "scrollX": true,
+      });
+
+    });
+  </script> -->
+
+    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+    <!-- <script src="js/jquery.steps.js"></script>
+  <script src="js/main.js"></script> -->
+  </body>
+</html>

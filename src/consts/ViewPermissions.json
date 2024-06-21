@@ -1,0 +1,38 @@
+{
+  "PoolsSettings": {
+    "AddPoolButton": {
+      "god": true
+    },
+    "TransferToAnotherPoolButton": {
+      "god": true
+    },
+    "UpdatePoolButton": {
+      "god": true
+    },
+    "DeletePoolButton": {
+      "god": true
+    },
+    "CreateUserForSuperAdmin": {
+      "god": true
+    }
+  },
+  "TransactionsPage":{
+    "ApproveRejcectButtons":{
+      "god": true,
+      "admin": true,
+      "super_admin": true,
+      "user": true,
+      "website":false
+    },
+    "EditTransactionButton":{
+      "god": true,
+      "admin": true,
+      "super_admin": true
+    },
+    "ForwardWithdrawButton":{
+      "god": true,
+      "admin": false,
+      "super_admin": true
+    }
+  }
+}

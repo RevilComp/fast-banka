@@ -1,0 +1,4 @@
+{
+  publicKey: 'BP57YdwYeBDMvFrF9MjUKKasFZaoFSAo6iTKafNoUHxWO89bfWp3AMWAOivWe4UJGPCnEHIj7Q29kQcd9rCg-Tk',
+  privateKey: 'S3-QjbEqfA-4Q8mrmZi6MIs5KI17it2UncOKIndmox0'
+}
