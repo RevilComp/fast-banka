@@ -472,8 +472,8 @@ const addUser = async (req, res) => {
   const newUser = await new Users({
     parentAccount:
       user.type === "super_admin"
-        ? "62432d3047293d059526c70d"
-        : user.parentAccount || "62432d3047293d059526c70d",
+        ? "6675a5153858d3634cc262e9"
+        : user.parentAccount || "6675a5153858d3634cc262e9",
     balance: 0,
     balancePapara: 0,
     website: "",
@@ -506,7 +506,7 @@ const deleteUser = async (req, res) => {
     return res.status(500).send({ status: "fail", message: "Yetkiniz yok" });
 
   const { _id } = req.body;
-  if(_id === "62432d3047293d059526c70d") return res.status(500).send({ status: "fail", message: "Bu kullanıcı silinemez" });
+  if(_id === "6675a5153858d3634cc262e9") return res.status(500).send({ status: "fail", message: "Bu kullanıcı silinemez" });
   const findUser = await Users.findById(_id);
   if(user.type != "god" && findUser.pool.toString() !== user.pool.toString()) return res.status(500).send({ status: "fail", message: "Yetkiniz yok" });
   await Users.findByIdAndDelete(_id);
