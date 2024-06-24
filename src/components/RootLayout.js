@@ -59,10 +59,12 @@ const GOD = [
         to: "/create-user",
       },
       {
-        text: process.env.REACT_APP_PAPARA_ENABLED === "true" ? "Papara Hesapları" : "Banka Hesapları",
+        text:
+          process.env.REACT_APP_PAPARA_ENABLED === "true"
+            ? "Papara Hesapları"
+            : "Banka Hesapları",
         to: "/bank-accounts",
-      }
-
+      },
     ],
   },
   {
@@ -142,10 +144,12 @@ const SUPER_ADMIN = [
         to: "/create-user",
       },
       {
-        text: process.env.REACT_APP_PAPARA_ENABLED === "true" ? "Papara Hesapları" : "Banka Hesapları",
+        text:
+          process.env.REACT_APP_PAPARA_ENABLED === "true"
+            ? "Papara Hesapları"
+            : "Banka Hesapları",
         to: "/bank-accounts",
-      }
-
+      },
     ],
   },
   {
@@ -223,10 +227,12 @@ const ADMIN = [
     icon: <FontAwesomeIcon icon={faSliders} />,
     children: [
       {
-        text: process.env.REACT_APP_PAPARA_ENABLED === "true" ? "Papara Hesapları" : "Banka Hesapları",
+        text:
+          process.env.REACT_APP_PAPARA_ENABLED === "true"
+            ? "Papara Hesapları"
+            : "Banka Hesapları",
         to: "/bank-accounts",
-      }
-
+      },
     ],
   },
 ];
