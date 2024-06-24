@@ -496,7 +496,7 @@ const DocsPageBanka = () => {
                       GET
                     </span>{" "}
                     <span className="text primary ml-5">
-                      https://havaleode.com/api/entegration/transaction?transactionUid=transactionUid
+                      https://finfastpay.com/api/entegration/transaction?transactionUid=transactionUid
                     </span>
                   </h1>
                 </div>
@@ -508,7 +508,7 @@ const DocsPageBanka = () => {
                       {`
                             const transactionUid = 'Ukkldyttrhndtkvıkj314f0';
 
-                            const url = "https://havaleode.com/api/entegration/transaction?transactionUid=", transactionUid;
+                            const url = "https://finfastpay.com/api/entegration/transaction?transactionUid=", transactionUid;
                             
                             fetch(url)
                               .then(response => {
@@ -534,7 +534,7 @@ const DocsPageBanka = () => {
 
                         const transactionUid = 'Ukkldyttrhndtkvıkj314f0';
                         
-                        const url = "https://havaleode.com/api/entegration/transaction?transactionUid=", transactionUid;
+                        const url = "https://finfastpay.com/api/entegration/transaction?transactionUid=", transactionUid;
                         
                         axios.get(url)
                           .then(response => {
@@ -555,7 +555,7 @@ const DocsPageBanka = () => {
 
                       transactionUid = 'Ukkldyttrhndtkvıkj314f0'
                       
-                      url = f"https://havaleode.com/api/entegration/transaction?transactionUid={transactionUid}"
+                      url = f"https://finfastpay.com/api/entegration/transaction?transactionUid={transactionUid}"
                       
                       try:
                           response = requests.get(url)
@@ -577,7 +577,7 @@ const DocsPageBanka = () => {
 
                       $transactionUid = 'Ukkldyttrhndtkvıkj314f0';
                       
-                      $url = 'https://havaleode.com/api/entegration/transaction?transactionUid=' . urlencode($transactionUid);
+                      $url = 'https://finfastpay.com/api/entegration/transaction?transactionUid=' . urlencode($transactionUid);
                       
                       try {
                           $response = file_get_contents($url); // URL'yi oku ve içeriği al
@@ -608,7 +608,7 @@ const DocsPageBanka = () => {
                       POST
                     </span>{" "}
                     <span className="text primary ml-5">
-                      https://havaleode.com/api/transactions/makewithdrawrequest
+                      https://finfastpay.com/api/transactions/makewithdrawrequest
                     </span>
                   </h1>
                 </div>
@@ -636,7 +636,7 @@ const DocsPageBanka = () => {
                           amount: 200
                       };
           
-                      const url = 'https://havaleode.com/api/transactions/makewithdrawrequest';
+                      const url = 'https://finfastpay.com/api/transactions/makewithdrawrequest';
           
                       fetch(url, {
                           method: 'POST',
@@ -683,7 +683,7 @@ const DocsPageBanka = () => {
                           amount: 200
                       };
                       
-                      const url = 'https://havaleode.com/api/transactions/makewithdrawrequest';
+                      const url = 'https://finfastpay.com/api/transactions/makewithdrawrequest';
                       
                       axios.post(url, postData, {
                           headers: {
@@ -726,7 +726,7 @@ const DocsPageBanka = () => {
                           'amount': 200
                       }
                       
-                      url = 'https://havaleode.com/api/transactions/makewithdrawrequest'
+                      url = 'https://finfastpay.com/api/transactions/makewithdrawrequest'
                       
                       headers = {'Content-Type': 'application/json'}
                       
@@ -765,7 +765,7 @@ const DocsPageBanka = () => {
                           'amount' => 200
                       );
                       
-                      $url = 'https://havaleode.com/api/transactions/makewithdrawrequest';
+                      $url = 'https://finfastpay.com/api/transactions/makewithdrawrequest';
                       
                       $payload = json_encode($postData);
                       
@@ -802,7 +802,7 @@ const DocsPageBanka = () => {
                       POST
                     </span>{" "}
                     <span className="text primary ml-5">
-                      https://havaleode.com/api/entegration/createdeposit
+                      https://finfastpay.com/api/entegration/createdeposit
                     </span>
                   </h1>
                 </div>
@@ -823,7 +823,7 @@ const DocsPageBanka = () => {
                         amount: 405
                       };
           
-                      const url = 'https://havaleode.com/api/entegration/createdeposit';
+                      const url = 'https://finfastpay.com/api/entegration/createdeposit';
           
                       fetch(url, {
                           method: 'POST',
@@ -863,7 +863,7 @@ const DocsPageBanka = () => {
                           amount: 405
                       };
                       
-                      const url = 'https://havaleode.com/api/entegration/createdeposit';
+                      const url = 'https://finfastpay.com/api/entegration/createdeposit';
                       
                       axios.post(url, postData, {
                           headers: {
@@ -899,7 +899,7 @@ const DocsPageBanka = () => {
                           "amount": 405
                       }
                       
-                      url = 'https://havaleode.com/api/entegration/createdeposit'
+                      url = 'https://finfastpay.com/api/entegration/createdeposit'
                       
                       headers = {
                           'Content-Type': 'application/json'
@@ -936,7 +936,7 @@ const DocsPageBanka = () => {
                           'amount' => 405
                       );
                       
-                      $url = 'https://havaleode.com/api/entegration/createdeposit';
+                      $url = 'https://finfastpay.com/api/entegration/createdeposit';
                       
                       $options = array(
                           'http' => array(
