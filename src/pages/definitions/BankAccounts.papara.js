@@ -27,9 +27,8 @@ import Button from "../../components/ui/Button";
 import Modal from "../../components/ui/Modal";
 import Input from "../../components/ui/Input";
 import Dialog from "../../components/ui/Dialog";
-import video from '../../assets/videos/video.mp4'
-import video2 from '../../assets/videos/video2.webm'
-
+import video from "../../assets/videos/video.mp4";
+import video2 from "../../assets/videos/video2.webm";
 
 const suspendAndActiveAccount = async (payload) => {
   return await new HttpRequest("api").post(
@@ -39,7 +38,10 @@ const suspendAndActiveAccount = async (payload) => {
 };
 
 const retryMail = async (payload) => {
-  return await new HttpRequest("api").post("bankaccounts/retry-papara-mail", payload);
+  return await new HttpRequest("api").post(
+    "bankaccounts/retry-papara-mail",
+    payload
+  );
 };
 
 const getPools = async (poolsParams) =>
@@ -206,13 +208,13 @@ const BankAccountsPagePapara = () => {
         setDialog(true);
         setDialogTitle("Error");
         setDialogMessage(data.message);
-      }
-      else{
+      } else {
         setDialog(true);
         setDialogTitle("Güncellendi");
         setDialogMessage(data.message);
       }
-    }});
+    },
+  });
 
   const retryMailConnection = (paparaMailId) => {
     retryMailConnectionMutation.mutate({
@@ -221,12 +223,10 @@ const BankAccountsPagePapara = () => {
     });
   };
 
-
   const handleModalBankAccounts = () =>
     setModalBankAccounts(!modalBankAccounts);
 
-  const handleModalVideoPlayer = () =>
-    setModalVideoPlayer(!modalVideoPlayer);
+  const handleModalVideoPlayer = () => setModalVideoPlayer(!modalVideoPlayer);
 
   const suspendAndActiveAccountMutation = useMutation(suspendAndActiveAccount, {
     onSuccess: (data) => {
@@ -467,14 +467,21 @@ const BankAccountsPagePapara = () => {
           />
         );
       case "false":
-        return (<>
-          <FontAwesomeIcon
-            icon={faMultiply}
-            size="lg"
-            className="text-red-500 cursor-pointer"
-          />
-        <button className="text-blue-500 cursor-pointer" onClick={() => retryMailConnection(paparaMail._id)}>Tekrar Bağlan</button>
-        </>)
+        return (
+          <>
+            <FontAwesomeIcon
+              icon={faMultiply}
+              size="lg"
+              className="text-red-500 cursor-pointer"
+            />
+            <button
+              className="text-blue-500 cursor-pointer"
+              onClick={() => retryMailConnection(paparaMail._id)}
+            >
+              Tekrar Bağlan
+            </button>
+          </>
+        );
       case "pending":
         return (
           <FontAwesomeIcon
@@ -564,7 +571,10 @@ const BankAccountsPagePapara = () => {
                       size="lg"
                       className="text-orange-500 cursor-pointer"
                       onClick={() =>
-                        handleSuspendAndActiveAccount(item._id, item.active ? false : true)
+                        handleSuspendAndActiveAccount(
+                          item._id,
+                          item.active ? false : true
+                        )
                       }
                     />
                     <FontAwesomeIcon
@@ -641,7 +651,10 @@ const BankAccountsPagePapara = () => {
                     size="lg"
                     className="text-orange-500 cursor-pointer"
                     onClick={() =>
-                      handleSuspendAndActiveAccount(item._id, item.active ? false : true )
+                      handleSuspendAndActiveAccount(
+                        item._id,
+                        item.active ? false : true
+                      )
                     }
                   />
                   <FontAwesomeIcon
@@ -707,14 +720,14 @@ const BankAccountsPagePapara = () => {
                       value={selectedPoolId}
                       onChange={handleSelectedPoolIdChange}
                     >
-                      <option value="">Havuz Seçiniz</option>
+                      <option value="">Saha Seçiniz</option>
                       {pools?.map((pool, index) => (
                         <option
                           key={pool._id}
                           value={pool._id}
                           className="text-dark"
                         >
-                          {pool.title || "İsimsiz Havuz" + (index + 1)}
+                          {pool.title || "İsimsiz Saha" + (index + 1)}
                         </option>
                       ))}
                     </select>
@@ -981,22 +994,21 @@ const BankAccountsPagePapara = () => {
                 Papara Hesabını Oluştur
               </Button>
               <Button
-              onClick={() => handleModalVideoPlayer()}
+                onClick={() => handleModalVideoPlayer()}
                 type={"button"}
                 variant={"success"}
                 className={"w-full py-4 lg:py-5 mt-4"}
-                
               >
                 <span
-                    className="info"
-                    title="Papara Mail Şifresi alanını girmeden önce bu videoyu izleyin."
-                  >
-                    <FontAwesomeIcon
-                      icon={faCircleQuestion}
-                      size="lg"
-                      className="mr-3"
-                    />
-                  </span>
+                  className="info"
+                  title="Papara Mail Şifresi alanını girmeden önce bu videoyu izleyin."
+                >
+                  <FontAwesomeIcon
+                    icon={faCircleQuestion}
+                    size="lg"
+                    className="mr-3"
+                  />
+                </span>
                 Papara Hesabı Ekleme Yardım
               </Button>
             </Modal.Footer>
@@ -1022,13 +1034,12 @@ const BankAccountsPagePapara = () => {
           <Modal.Footer>
             <Button
               onClick={() => handleModalVideoPlayer()}
-                type={"button"}
-                variant={"success"}
-                className={"w-full py-4 lg:py-5 mt-4"}
-                
-              >
-                Tamamdır
-              </Button>
+              type={"button"}
+              variant={"success"}
+              className={"w-full py-4 lg:py-5 mt-4"}
+            >
+              Tamamdır
+            </Button>
           </Modal.Footer>
         </Modal>
       </Suspense>

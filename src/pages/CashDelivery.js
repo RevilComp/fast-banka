@@ -36,10 +36,14 @@ const TABLE_HEAD = [
 
 // * GET: Get Cash Delivery State
 const getCashDelivery = async (cashParams) =>
-  new HttpRequest("api").get(`cashdelivery?token=${cashParams.token}&pool=${cashParams.pool}`);
+  new HttpRequest("api").get(
+    `cashdelivery?token=${cashParams.token}&pool=${cashParams.pool}`
+  );
 
 const getPoolByUser = async (cashParams) =>
-  new HttpRequest("api").get(`pool/byuser?token=${cashParams.token}&pool=${cashParams.pool}`);
+  new HttpRequest("api").get(
+    `pool/byuser?token=${cashParams.token}&pool=${cashParams.pool}`
+  );
 
 // * POST: Create Cash Delivery State
 const createCashDelivery = async (payload) =>
@@ -49,7 +53,9 @@ const deleteCashDelivery = async (payload) =>
   new HttpRequest("api").post("cashdelivery/delete", payload);
 
 const getPools = async (poolsParams) =>
-  await new HttpRequest("api").get(`pool?token=${poolsParams.queryKey[1].token}&remoteToken=${poolsParams.queryKey[1].remoteToken}`);
+  await new HttpRequest("api").get(
+    `pool?token=${poolsParams.queryKey[1].token}&remoteToken=${poolsParams.queryKey[1].remoteToken}`
+  );
 
 const CashDeliveryPage = () => {
   const loaderData = useLoaderData();
@@ -68,9 +74,10 @@ const CashDeliveryPage = () => {
   const [selectedPoolId, setSelectedPoolId] = useState("");
   const handleSelectedPoolIdChange = (event) => {
     setSelectedPoolId(event.target.value);
-    setSelectedPoolInformation(pools.find((pool) => pool._id === event.target.value));
+    setSelectedPoolInformation(
+      pools.find((pool) => pool._id === event.target.value)
+    );
   };
-
 
   const downloadExcel = () => {
     axios
@@ -112,27 +119,25 @@ const CashDeliveryPage = () => {
     remoteToken: localStorage.getItem("remoteToken"),
   };
 
-  const {
-    isLoading: isPoolsDataLoading,
-    refetch: refetchPools,
-  } = useQuery(["getPools", poolsParams], {
-    refetchOnWindowFocus: false,
-    queryFn: async (data) => {
-      if(profile?.type === "god") {
-      const pools = await getPools(data);
-      setPools(pools);
-      setSelectedPoolId(pools[0]._id);
-      setSelectedPoolInformation(pools[0]);
-      }
-    },
-  });
+  const { isLoading: isPoolsDataLoading, refetch: refetchPools } = useQuery(
+    ["getPools", poolsParams],
+    {
+      refetchOnWindowFocus: false,
+      queryFn: async (data) => {
+        if (profile?.type === "god") {
+          const pools = await getPools(data);
+          setPools(pools);
+          setSelectedPoolId(pools[0]._id);
+          setSelectedPoolInformation(pools[0]);
+        }
+      },
+    }
+  );
 
   const cashParams = {
     token: Cookies.get("token"),
-    pool: selectedPoolId
+    pool: selectedPoolId,
   };
-
-  
 
   const { isLoading: isCashDeliveryLoading, refetch: refetchGetCashDelivery } =
     useQuery(["getCashDelivery", cashParams], {
@@ -142,8 +147,7 @@ const CashDeliveryPage = () => {
         if (response.data.cashDelivery.length === 0) {
           setLatestCash(0);
           setCashDeliveries([]);
-        }
-        else {
+        } else {
           const cashDelivery = response.data.cashDelivery;
 
           setCashDeliveries(cashDelivery);
@@ -206,7 +210,7 @@ const CashDeliveryPage = () => {
       token: Cookies.get("token"),
       withdrawalAmount,
       comissionAmount,
-      pool: selectedPoolId
+      pool: selectedPoolId,
     });
 
     refetchPoolInformation();
@@ -221,8 +225,6 @@ const CashDeliveryPage = () => {
   }, [isWithdrawalAmountValid, isComissionAmountValid]);
 
   if (isCashDeliveryLoading) return <Spinner />;
-
-  
 
   return (
     <Suspense fallback={<Loading />}>
@@ -260,44 +262,49 @@ const CashDeliveryPage = () => {
               <Card className={"mb-12"}>
                 <Card.Header className={"mb-3"}>
                   <div className="mb-3 flex justify-between">
-                  <h1 className="font-bold">Kasa ve Teslimat</h1>
-                  
-                  <Button
-                    type={"submit"}
-                    variant={"orange"}
-                    className=""
-                    onClick={() => {
-                      setExcelLoading(true);
-                      downloadExcel();
-                    }}
-                  >
-                    <FontAwesomeIcon
-                      icon={faFileExcel}
-                      size="lg"
-                      className="text-white cursor-pointer mr-2"
-                    />
-                    Excel İndir
-                  </Button>
+                    <h1 className="font-bold">Kasa ve Teslimat</h1>
+
+                    <Button
+                      type={"submit"}
+                      variant={"orange"}
+                      className=""
+                      onClick={() => {
+                        setExcelLoading(true);
+                        downloadExcel();
+                      }}
+                    >
+                      <FontAwesomeIcon
+                        icon={faFileExcel}
+                        size="lg"
+                        className="text-white cursor-pointer mr-2"
+                      />
+                      Excel İndir
+                    </Button>
                   </div>
                   <div className="mt-5">
-                  {JSON.parse(localStorage.getItem("profile"))?.type === "god" && (
-                        <div className="mt-5 flex-grow">
-                          <select
-                            name="user-type"
-                            id="user-type"
-                            className="w-full rounded-md py-3 border-gray-300"
-                            value={selectedPoolId}
-                            onChange={handleSelectedPoolIdChange}
-                          >
-                            <option disabled>Havuz Seçiniz</option>
-                            {pools?.map((pool, index) => (
-                              <option key={pool._id} value={pool._id} className="text-dark">
-                                {pool?.title || "İsizmsiz Havuz"}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
-                      )}
+                    {JSON.parse(localStorage.getItem("profile"))?.type ===
+                      "god" && (
+                      <div className="mt-5 flex-grow">
+                        <select
+                          name="user-type"
+                          id="user-type"
+                          className="w-full rounded-md py-3 border-gray-300"
+                          value={selectedPoolId}
+                          onChange={handleSelectedPoolIdChange}
+                        >
+                          <option disabled>Saha Seçiniz</option>
+                          {pools?.map((pool, index) => (
+                            <option
+                              key={pool._id}
+                              value={pool._id}
+                              className="text-dark"
+                            >
+                              {pool?.title || "İsizmsiz Saha"}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    )}
                   </div>
                 </Card.Header>
                 <Card.Body
@@ -310,8 +317,11 @@ const CashDeliveryPage = () => {
                     <section className="flex items-center gap-2">
                       <FontAwesomeIcon icon={faTurkishLiraSign} />
                       <span className="font-semibold">
-                        {poolInformation?.currentDeposit !== undefined ? (poolInformation?.currentDeposit -
-                          poolInformation?.currentWithdraw) : (selectedPoolInformation?.currentDeposit - selectedPoolInformation?.currentWithdraw)}
+                        {poolInformation?.currentDeposit !== undefined
+                          ? poolInformation?.currentDeposit -
+                            poolInformation?.currentWithdraw
+                          : selectedPoolInformation?.currentDeposit -
+                            selectedPoolInformation?.currentWithdraw}
                       </span>
                     </section>
                   </div>
@@ -320,7 +330,9 @@ const CashDeliveryPage = () => {
                     <section className="flex items-center gap-2">
                       <FontAwesomeIcon icon={faTurkishLiraSign} />
                       <span className="font-semibold">
-                        {poolInformation?.finalBalance || selectedPoolInformation?.finalBalance || 0}
+                        {poolInformation?.finalBalance ||
+                          selectedPoolInformation?.finalBalance ||
+                          0}
                       </span>
                     </section>
                   </div>

@@ -168,13 +168,11 @@ const WaitingDepositPage = () => {
   const handleOpenConfirm = () => setConfirm(true);
 
   const playAudio = () => {
-    try{
-    audioPlayer.current.play();
-  }
-  catch(e){
-    console.log(e);
-  }
-
+    try {
+      audioPlayer.current.play();
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   useEffect(() => {
@@ -573,11 +571,11 @@ const WaitingDepositPage = () => {
               (data) => ({
                 SITE: data.websiteCodeS,
                 ID: data.transactionId,
-                İŞLEMLER: (
-                  renderForPermission(
-                    profile.type,
-                    "TransactionsPage.ApproveRejcectButtons"
-                  ) && <div className="flex gap-2">
+                İŞLEMLER: renderForPermission(
+                  profile.type,
+                  "TransactionsPage.ApproveRejcectButtons"
+                ) && (
+                  <div className="flex gap-2">
                     <Button
                       type={"button"}
                       variant={"success"}
@@ -696,14 +694,14 @@ const WaitingDepositPage = () => {
                             value={selectedPoolId}
                             onChange={handleSelectedPoolIdChange}
                           >
-                            <option value="">Havuz Seçiniz</option>
+                            <option value="">Saha Seçiniz</option>
                             {pools?.map((pool, index) => (
                               <option
                                 key={pool._id}
                                 value={pool._id}
                                 className="text-dark"
                               >
-                                {pool.title || "İsimsiz Havuz" + (index + 1)}
+                                {pool.title || "İsimsiz Saha" + (index + 1)}
                               </option>
                             ))}
                           </select>

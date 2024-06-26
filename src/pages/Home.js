@@ -81,7 +81,7 @@ const HomePage = () => {
           {(resolvedData) => {
             if (!resolvedData) return;
 
-            const tableRows = resolvedData.map((user) => ({
+            const tableRows = resolvedData?.map((user) => ({
               ID: user._id,
               "KULLANICI ADI": user.username,
               "AD SOYAD": `${user.firstName} ${user.lastName}`,
@@ -128,7 +128,7 @@ const HomePage = () => {
                   }
                 >
                   <p className="font-bold mb-4 lg:mb-0">
-                    Toplam Kullanıcı: {resolvedData.length}
+                    Toplam Kullanıcı: {resolvedData?.length}
                   </p>
                 </Card.Header>
                 <Card.Body>

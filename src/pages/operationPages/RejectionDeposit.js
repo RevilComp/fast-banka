@@ -461,14 +461,14 @@ const RejectionDepositPage = () => {
                             value={selectedPoolId}
                             onChange={handleSelectedPoolIdChange}
                           >
-                            <option value="">Havuz Seçiniz</option>
+                            <option value="">Saha Seçiniz</option>
                             {pools?.map((pool, index) => (
                               <option
                                 key={pool._id}
                                 value={pool._id}
                                 className="text-dark"
                               >
-                                {pool.title || "İsimsiz Havuz" + (index + 1)}
+                                {pool.title || "İsimsiz Saha" + (index + 1)}
                               </option>
                             ))}
                           </select>

@@ -18,25 +18,25 @@ import Card from "../../components/ui/Card";
 import moment from "moment";
 import HeaderReport from "../../components/ui/HeaderReport";
 import { useQuery } from "react-query";
-import axios from 'axios'
+import axios from "axios";
 // TODO : BEKLEYEN İŞLEM VE POOL FİLTRELEME EKLENECEK
-
-
 
 const getMutabakat = async (usersData) =>
   await new HttpRequest("api").get(
     `users/mutabakat?token=${usersData.queryKey[1].token}&selectedUser=${usersData.queryKey[1].selectedUser}&startDate=${usersData.queryKey[1].startDate}&endDate=${usersData.queryKey[1].endDate}&papara=${usersData.queryKey[1].papara}`,
     {
-     ...(usersData.queryKey[1].pool !== "all" && usersData.queryKey[1].pool ? {pool: usersData.queryKey[1].pool} : {})
+      ...(usersData.queryKey[1].pool !== "all" && usersData.queryKey[1].pool
+        ? { pool: usersData.queryKey[1].pool }
+        : {}),
     }
   );
 
-  const getWebsiteMutabakat = async (usersData) =>
+const getWebsiteMutabakat = async (usersData) =>
   await new HttpRequest("api").get(
     `users/mutabakat-website?token=${usersData.queryKey[1].token}&selectedUser=${usersData.queryKey[1].selectedUser}&startDate=${usersData.queryKey[1].startDate}&endDate=${usersData.queryKey[1].endDate}&papara=${usersData.queryKey[1].papara}`
   );
 
-  const getPool = async (payloadData) =>
+const getPool = async (payloadData) =>
   await new HttpRequest("api").get(
     `pool?token=${payloadData.queryKey[1].token}`
   );
@@ -52,16 +52,17 @@ const ConsensusPage = () => {
   const [poolData, setPoolData] = useState();
   const [selectedPool, setSelectedPool] = useState("all");
   const profile = JSON.parse(localStorage.getItem("profile"));
-  const [selectedWebsite, setSelectedWebsite] = useState(profile?.type == "website" ? profile?._id  : "all")
+  const [selectedWebsite, setSelectedWebsite] = useState(
+    profile?.type == "website" ? profile?._id : "all"
+  );
 
   const handleDateChange = (newValue) => {
     setDateRange(newValue);
   };
   const handleWebsiteChange = (event) => setSelectedWebsite(event.target.value);
 
-  const handleSelectedPoolChange = (event) => setSelectedPool(event.target.value);
-
-
+  const handleSelectedPoolChange = (event) =>
+    setSelectedPool(event.target.value);
 
   function formatMoney(n) {
     try {
@@ -77,7 +78,7 @@ const ConsensusPage = () => {
     }
   }
   const calculateCommission = (deposit, withdraw, commission) => {
-    const amount = Number(deposit)
+    const amount = Number(deposit);
     return `${formatMoney(amount)}TRY x ${commission}% / 100 = ${formatMoney(
       (amount * commission) / 100
     )}TRY`;
@@ -88,17 +89,16 @@ const ConsensusPage = () => {
   const websiteMutabakatParams = {
     token: token,
     selectedUser: selectedWebsite,
-    startDate: moment(dateRange.startDate).format('YYYY-MM-DD'),
-    endDate: moment(dateRange.endDate).format('YYYY-MM-DD'),
+    startDate: moment(dateRange.startDate).format("YYYY-MM-DD"),
+    endDate: moment(dateRange.endDate).format("YYYY-MM-DD"),
     papara,
   };
-
 
   const getMutabakatData = {
     token: token,
     selectedUser: selectedWebsite,
-    startDate: moment(dateRange.startDate).format('YYYY-MM-DD'),
-    endDate: moment(dateRange.endDate).format('YYYY-MM-DD'),
+    startDate: moment(dateRange.startDate).format("YYYY-MM-DD"),
+    endDate: moment(dateRange.endDate).format("YYYY-MM-DD"),
     papara,
     pool: selectedPool,
   };
@@ -108,72 +108,73 @@ const ConsensusPage = () => {
     {
       refetchOnWindowFocus: false,
       queryFn: async (data) => {
-        if(profile?.type == "website") return;
+        if (profile?.type == "website") return;
         const response = await getMutabakat(data);
-        if(response?.status !== "fail"){
-        setMutabakatData(response);
+        if (response?.status !== "fail") {
+          setMutabakatData(response);
         }
       },
     }
   );
-  
-  const { isLoading: IsWebsiteMutabakatLoading, refetch: refetchWebsiteMutabakat } = useQuery(
-    ["getWebsiteMutabakat", websiteMutabakatParams],
-    {
-      refetchOnWindowFocus: false,
-      queryFn: async (data) => {
-        if(profile?.type !== "website") return;
-        const response = await getWebsiteMutabakat(data);
-        if(response?.status !== "fail"){
+
+  const {
+    isLoading: IsWebsiteMutabakatLoading,
+    refetch: refetchWebsiteMutabakat,
+  } = useQuery(["getWebsiteMutabakat", websiteMutabakatParams], {
+    refetchOnWindowFocus: false,
+    queryFn: async (data) => {
+      if (profile?.type !== "website") return;
+      const response = await getWebsiteMutabakat(data);
+      if (response?.status !== "fail") {
         setMutabakatData(response);
-        }
-      },
-    }
-  );
+      }
+    },
+  });
 
   const { isLoading: IsPoolDataLoading, refetch: refetchPoolData } = useQuery(
-    ["getWebsiteMutabakat", {
-      token: token,
-    }],
+    [
+      "getWebsiteMutabakat",
+      {
+        token: token,
+      },
+    ],
     {
       refetchOnWindowFocus: false,
       queryFn: async (data) => {
-        if(profile?.type !== "god") return;
+        if (profile?.type !== "god") return;
         const response = await getPool(data);
-        if(response?.status !== "fail"){
-        setPoolData(response);
+        if (response?.status !== "fail") {
+          setPoolData(response);
         }
       },
     }
   );
 
-  
   const downloadExcel = () => {
-    axios.post(process.env.REACT_APP_API_URL + 'api/transactions/excel', {
-      token: token,
-      selectedUser: selectedWebsite,
-      startDate: moment(dateRange.startDate).format('YYYY-MM-DD'),
-      endDate: moment(dateRange.endDate).format('YYYY-MM-DD'),
-      papara,
-    },
-    { responseType: "blob" },
-  )
-  .then(async function (response) {
-    setExcelLoading(false);
-    const url = window.URL.createObjectURL(
-      new Blob([response.data]),
-    );
-    const link = document.createElement("a");
-    link.href = url;
-    link.setAttribute("download", "file.xlsx");
-    document.body.appendChild(link);
-    link.click();
-  });
-  }
-  const handleFilter = ()=>{
+    axios
+      .post(
+        process.env.REACT_APP_API_URL + "api/transactions/excel",
+        {
+          token: token,
+          selectedUser: selectedWebsite,
+          startDate: moment(dateRange.startDate).format("YYYY-MM-DD"),
+          endDate: moment(dateRange.endDate).format("YYYY-MM-DD"),
+          papara,
+        },
+        { responseType: "blob" }
+      )
+      .then(async function (response) {
+        setExcelLoading(false);
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "file.xlsx");
+        document.body.appendChild(link);
+        link.click();
+      });
+  };
+  const handleFilter = () => {};
 
-  }
-  
   return (
     <>
       <Suspense
@@ -213,33 +214,47 @@ const ConsensusPage = () => {
                             value={selectedWebsite}
                             onChange={handleWebsiteChange}
                           >
-                            <option value="" disabled>Site Seçiniz</option>
-                            {profile.type !== "website" && <option value="all">Tüm Siteler</option>}
+                            <option value="" disabled>
+                              Site Seçiniz
+                            </option>
+                            {profile.type !== "website" && (
+                              <option value="all">Tüm Siteler</option>
+                            )}
                             {websites?.map((website, index) => (
-                              <option value={website._id}>{profile.type == "god" ? website.username : website.shortName }</option>
+                              <option value={website._id}>
+                                {profile.type == "god"
+                                  ? website.username
+                                  : website.shortName}
+                              </option>
                             ))}
                           </select>
                         </div>
 
-                       {profile?.type === "god" && <div className="mt-5 flex-grow">
-                          <select
-                            name="status-type"
-                            id="status-type"
-                            className="w-full rounded-md py-3 border-gray-300"
-                            value={selectedPool}
-                            onChange={handleSelectedPoolChange}
-                          >
-                            <option value="" disabled>Havuz Seçiniz</option>
-                            <option value="all">Tüm Havuzlar</option>
-                            {poolData?.map((pool, index) => (
-                              <option value={pool._id}>{pool?.title || "İsimsiz Havuz"}</option>
-                            ))}
-                          </select>
-                        </div>}
+                        {profile?.type === "god" && (
+                          <div className="mt-5 flex-grow">
+                            <select
+                              name="status-type"
+                              id="status-type"
+                              className="w-full rounded-md py-3 border-gray-300"
+                              value={selectedPool}
+                              onChange={handleSelectedPoolChange}
+                            >
+                              <option value="" disabled>
+                                Saha Seçiniz
+                              </option>
+                              <option value="all">Tüm Sahalar</option>
+                              {poolData?.map((pool, index) => (
+                                <option value={pool._id}>
+                                  {pool?.title || "İsimsiz Saha"}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                        )}
 
                         <div className="mt-5 md:flex">
                           <Button
-                          onClick={() => handleFilter()}
+                            onClick={() => handleFilter()}
                             type={"submit"}
                             variant={"primary"}
                             className="w-full h-full"
@@ -254,19 +269,18 @@ const ConsensusPage = () => {
                             className="w-full h-full "
                             onClick={() => {
                               setExcelLoading(true);
-                              downloadExcel()
+                              downloadExcel();
                             }}
                           >
                             <FontAwesomeIcon
-                            icon={faFileExcel}
-                            size="lg"
-                            className="text-white cursor-pointer mr-2"
-                          />
+                              icon={faFileExcel}
+                              size="lg"
+                              className="text-white cursor-pointer mr-2"
+                            />
                             Excel İndir
                           </Button>
                         </div>
                       </div>
-                      
                     </Form>
                   </Card.Body>
                 </Card>
@@ -291,30 +305,37 @@ const ConsensusPage = () => {
                     />
                   </div>
                   <div className="flex flex-col lg:flex-row text-white gap-5 mb-4">
-                  <HeaderReport
+                    <HeaderReport
                       icon={faArrowUpFromBracket}
                       title={"Toplam Yatırım Sayısı"}
-                      amount={`${mutabakatData?.getTransactionSumDeposit?.number || 0} Adet`}
+                      amount={`${
+                        mutabakatData?.getTransactionSumDeposit?.number || 0
+                      } Adet`}
                       backgroundColor={"bg-primary"}
                     />
                     <HeaderReport
                       icon={faDownload}
                       title={"Toplam Çekim Sayısı"}
-                      amount={`${mutabakatData?.getTransactionSumWithdraw?.number || 0} Adet`}
+                      amount={`${
+                        mutabakatData?.getTransactionSumWithdraw?.number || 0
+                      } Adet`}
                       backgroundColor={"bg-[#f1416c]"}
                     />
                   </div>
                   <div className="flex flex-col lg:flex-row text-white gap-5 mb-12">
-                  {(profile?.type === "god" || profile?.type == "super_admin") && <HeaderReport
-                      icon={faPercent}
-                      title={"Toplam Komisyon Tutarı"}
-                      amount={`${calculateCommission(
-                        mutabakatData?.getTransactionSumDeposit?.amount || 0,
-                        mutabakatData?.getTransactionSumWithdraw?.amount || 0,
-                        mutabakatData?.commissionRate || 0
-                      )} TRY`}
-                      backgroundColor={"bg-[#7239ea]"}
-                    />}
+                    {(profile?.type === "god" ||
+                      profile?.type == "super_admin") && (
+                      <HeaderReport
+                        icon={faPercent}
+                        title={"Toplam Komisyon Tutarı"}
+                        amount={`${calculateCommission(
+                          mutabakatData?.getTransactionSumDeposit?.amount || 0,
+                          mutabakatData?.getTransactionSumWithdraw?.amount || 0,
+                          mutabakatData?.commissionRate || 0
+                        )} TRY`}
+                        backgroundColor={"bg-[#7239ea]"}
+                      />
+                    )}
                     <HeaderReport
                       icon={faVault}
                       title={"Kasa"}
@@ -323,7 +344,9 @@ const ConsensusPage = () => {
                     />
                   </div>
                   <div>
-                    {localStorage.getItem("remoteProfile") !== null || localStorage.getItem("profile").type === "god" || localStorage.getItem("profile").type === "super_admin" ? (
+                    {localStorage.getItem("remoteProfile") !== null ||
+                    localStorage.getItem("profile").type === "god" ||
+                    localStorage.getItem("profile").type === "super_admin" ? (
                       <div className="flex flex-col lg:flex-row text-white gap-5 mb-12">
                         <HeaderReport
                           icon={faHourglassHalf}
@@ -371,9 +394,9 @@ export const loader = async ({ request }) => {
   // const paramsDeposit = {
   //   token: token,
   //   ...state,
-    
+
   // };
-  
+
   // let mutabakatData;
   const paramsUsers = {
     token: token,
