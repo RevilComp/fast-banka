@@ -258,7 +258,7 @@ const PoolSettingsPageBanka = () => {
     onSuccess: (data) => {
       if (data?.isUserExistInPool) {
         return alert(
-          "Kullanıcı havuzda bulunmaktadır. Lütfen önce kullanıcıyı havuzdan çıkarın."
+          "Kullanıcı sahada bulunmaktadır. Lütfen önce kullanıcıyı sahadan çıkarın."
         );
       }
       refetch();
@@ -400,7 +400,7 @@ const PoolSettingsPageBanka = () => {
                     });
                   }}
                 >
-                  Havuz Ekle
+                  Saha Ekle
                 </Button>
               )}
               {pools.map((pool) => {
@@ -436,7 +436,7 @@ const PoolSettingsPageBanka = () => {
                             handleModalPoolTransfer();
                           }}
                         >
-                          Başka Havuza Transfer Et
+                          Başka Sahaya Transfer Et
                         </Button>
                       )}
                       <Button
@@ -460,7 +460,7 @@ const PoolSettingsPageBanka = () => {
                     <div className="bg-secondary p-4 text-white rounded-t-lg">
                       <div className="flex align-center justify-between">
                         <h1 className="font-bold">
-                          {pool.title || "İsimsiz Havuz"} (
+                          {pool.title || "İsimsiz Saha"} (
                           {pool.enabled ? "Aktif" : "Pasif"})
                         </h1>
                         <div>
@@ -559,7 +559,7 @@ const PoolSettingsPageBanka = () => {
                                 deleteSubmit(pool._id);
                               }}
                             >
-                              Havuzu Sil
+                              Sahayı Sil
                             </Button>
                           )}
                         </div>
@@ -658,8 +658,7 @@ const PoolSettingsPageBanka = () => {
                 <form onSubmit={updatePoolRequest}>
                   <Modal.Header handleModal={handleUpdateModalPool}>
                     <h1 className="font-semibold">
-                      {selectedPool?.title || "İsimsiz Havuz"} için Havuz
-                      Düzenle
+                      {selectedPool?.title || "İsimsiz Saha"} için Saha Düzenle
                     </h1>
                   </Modal.Header>
                   <Modal.Body>
@@ -667,8 +666,8 @@ const PoolSettingsPageBanka = () => {
                       <Input
                         type={"text"}
                         name={"poolTitle"}
-                        label={"Havuz İsmi"}
-                        placeholder={"Havuz İsmi"}
+                        label={"Saha İsmi"}
+                        placeholder={"Saha İsmi"}
                         value={poolTitle}
                         onChange={poolTitleOnChange}
                         className={"md-5"}
@@ -766,7 +765,7 @@ const PoolSettingsPageBanka = () => {
                       variant={"primary"}
                       className={"w-full py-4 lg:py-5"}
                     >
-                      Havuzu Düzenle
+                      Sahayı Düzenle
                     </Button>
                   </Modal.Footer>
                 </form>
@@ -782,7 +781,7 @@ const PoolSettingsPageBanka = () => {
                       {selectedUser?.firstName} {selectedUser?.lastName}
                       {" - "}
                       {selectedUser?.username}
-                      için Havuz Transfer İşlemi
+                      için Saha Transfer İşlemi
                     </h1>
                   </Modal.Header>
                   <Modal.Body>
@@ -800,7 +799,7 @@ const PoolSettingsPageBanka = () => {
                             value={pool._id}
                             className="text-dark"
                           >
-                            {pool.title || "İsimsiz Havuz"}
+                            {pool.title || "İsimsiz Saha"}
                           </option>
                         ))}
                     </select>
@@ -812,14 +811,14 @@ const PoolSettingsPageBanka = () => {
                         variant={"primary"}
                         className={"w-full py-4 lg:py-5 mt-3"}
                       >
-                        Havuzu Kaydet
+                        Sahayı Kaydet
                       </Button>
                       <Button
                         type={"submit"}
                         variant={"danger"}
                         className={"w-full py-4 lg:py-5 mt-3"}
                       >
-                        Havuz Kaldır
+                        Sahayı Kaldır
                       </Button>
                     </div>
                   </Modal.Footer>
@@ -832,15 +831,15 @@ const PoolSettingsPageBanka = () => {
               >
                 <form onSubmit={createSubmit}>
                   <Modal.Header handleModal={handleCreatePoolModal}>
-                    <h1 className="font-semibold">Yeni Havuz Hesabı Aç</h1>
+                    <h1 className="font-semibold">Yeni Saha Hesabı Aç</h1>
                   </Modal.Header>
                   <Modal.Body>
                     <div className="md-5 w-full mb-2">
                       <Input
                         type={"text"}
                         name={"poolTitle"}
-                        label={"Havuz İsmi"}
-                        placeholder={"Havuz İsmi"}
+                        label={"Saha İsmi"}
+                        placeholder={"Saha İsmi"}
                         value={poolTitle}
                         onChange={poolTitleOnChange}
                         className={"md-5"}
@@ -907,7 +906,7 @@ const PoolSettingsPageBanka = () => {
                       className={"w-full py-4 lg:py-5"}
                       onClick={() => setCreateModalPool(true)}
                     >
-                      Havuz Aç
+                      Saha Aç
                     </Button>
                   </Modal.Footer>
                 </form>

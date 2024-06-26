@@ -76,7 +76,7 @@ const GOD = [
         to: "/consensus",
       },
       {
-        text: "Havuz Ayarları",
+        text: "Saha Ayarları",
         to: "/pools",
       },
       {
@@ -165,7 +165,7 @@ const SUPER_ADMIN = [
         to: "/logs",
       },
       {
-        text: "Havuz Ayarları",
+        text: "Saha Ayarları",
         to: "/pools",
       },
 

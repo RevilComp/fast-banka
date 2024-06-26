@@ -105,13 +105,14 @@ const UserCreatePage = () => {
 
   return (
     <>
-    {
-      profile?.type === "god" && (
+      {profile?.type === "god" && (
         <div className="flex justify-between">
-          <h1>Bir God Admini olarak Lütfen Bu sayfadan Kullanıcı oluşturmayın. Havuzlar sayfasından oluşturabilirsiniz</h1>
+          <h1>
+            Bir God Admini olarak Lütfen Bu sayfadan Kullanıcı oluşturmayın.
+            Sahalar sayfasından oluşturabilirsiniz
+          </h1>
         </div>
-      )
-    }
+      )}
       <Card>
         <form onSubmit={handleSubmit}>
           <Card.Header>

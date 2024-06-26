@@ -598,14 +598,14 @@ const BankAccountsPageBanka = () => {
                       value={selectedPoolId}
                       onChange={handleSelectedPoolIdChange}
                     >
-                      <option value="">Havuz Seçiniz</option>
+                      <option value="">Saha Seçiniz</option>
                       {pools?.map((pool, index) => (
                         <option
                           key={pool._id}
                           value={pool._id}
                           className="text-dark"
                         >
-                          {pool.title || "İsimsiz Havuz" + (index + 1)}
+                          {pool.title || "İsimsiz Saha" + (index + 1)}
                         </option>
                       ))}
                     </select>
@@ -694,7 +694,9 @@ const BankAccountsPageBanka = () => {
                     <option value="Aktif Bank">Aktif Bank</option>
                     <option value="Ziraat Katılım">Ziraat Katılım</option>
                     <option value="Vakıf Katılım">Vakıf Katılım</option>
-                    <option value="Türkiye Finans Katılım">Türkiye Finans Katılım</option>
+                    <option value="Türkiye Finans Katılım">
+                      Türkiye Finans Katılım
+                    </option>
                   </select>
 
                   <Input

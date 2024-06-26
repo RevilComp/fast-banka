@@ -1,36 +1,20 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes";
 import "./App.css";
-import * as RemoteController from "./remoteControl";
+import { useEffect } from "react";
+import { logOutRemote } from "./remoteControl";
 
 function App() {
-  const themeState = useSelector((state) => state.theme);
-  // const dispatch = useDispatch();
-
-  const { theme } = themeState;
-
-  // Switching theme dynamically
-  // window
-  //   .matchMedia("(prefers-color-scheme: dark)")
-  //   .addEventListener("change", (e) =>
-  //     dispatch(themeSliceActions.switchTheme(e.matches ? "dark" : "light"))
-  //   );
-
   useEffect(() => {
-    RemoteController.isLogin();
-    const [html, body] = [
-      document.querySelector("html"),
-      document.querySelector("body"),
-    ];
+    const identifier = setTimeout(() => {
+      localStorage.removeItem("profile");
+      localStorage.removeItem("token");
 
-    if (theme === "dark") html.className = "dark";
-    else if (theme === "light") html.className = "";
+      logOutRemote();
+    }, 30 * 60 * 1000);
 
-    // body.className = "bg-white text-dark dark:bg-black dark:text-white";
-    body.className = "bg-light text-dark";
-  }, [theme]);
+    return () => clearTimeout(identifier);
+  }, []);
 
   return <RouterProvider router={router} />;
 }
